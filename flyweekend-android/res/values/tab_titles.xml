@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="tab_titles">
+        <item>Flight</item>
+        <item>Hotel</item>
+    </string-array>
+</resources>
