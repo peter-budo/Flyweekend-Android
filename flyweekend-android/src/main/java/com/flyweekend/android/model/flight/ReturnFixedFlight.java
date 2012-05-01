@@ -9,6 +9,21 @@ public class ReturnFixedFlight extends Flight{
     private String startTime;
     private String endTime;
 
+    public ReturnFixedFlight(double budget, String destination, String departure, Date startDate, Date endDate
+            , String startTime, String endTime, int adults, int children, int infants, String category){
+        setBudget(budget);
+        setDestination(destination);
+        setDeparture(departure);
+        setStartDate(startDate);
+        setEndDate(endDate);
+        setStartTime(startTime);
+        setEndTime(endTime);
+        setAdults(adults);
+        setChildren(children);
+        setInfants(infants);
+        setCategory(category);
+    }
+
     public Date getStartDate() {
         return startDate;
     }

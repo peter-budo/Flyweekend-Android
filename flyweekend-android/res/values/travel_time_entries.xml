@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="travel_time_entries">
+        <item>Any time</item>
+            <item>Before 9am</item>
+            <item>Morning 9am - 12pm</item>
+            <item>Afternoon 12pm - 6pm</item>
+            <item>Evening 6pm - 12 am</item>
+    </string-array>
+</resources>

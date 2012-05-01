@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="travel_time_entries">
+        <item>Tutto il giorno</item>
+        <item>Prima delle 9:00</item>
+        <item>Mattino (9:00-12:00)</item>
+        <item>Pomeriggio (12:00-18:00)</item>
+        <item>Sera (18:00-24:00)</item>
+    </string-array>
+</resources>

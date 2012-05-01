@@ -1,0 +1,9 @@
+<resources>
+    <string-array name="travel_time_values">
+        <item>00\:00-23\:59</item>
+        <item>00\:00-09\:00</item>
+        <item>09\:00-12\:00</item>
+        <item>12\:00-18\:00</item>
+        <item>18\:00-23\:59</item>
+    </string-array>
+</resources>

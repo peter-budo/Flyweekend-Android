@@ -7,9 +7,27 @@ public class ReturnFlexibleFlight extends Flight {
     private String startTime;
     private String endTime;
     private List<Integer> startDays;
-    private List<Integer> returnDays;
+    private List<Integer> endDays;
     private List<Integer> months;
     private Integer weeks;
+
+    public ReturnFlexibleFlight(double budget, String destination, String departure, List<Integer> startDays
+            , List<Integer> endDays, String startTime, String endTime, List<Integer> months, int weeks
+            , int adults, int children, int infants, String category){
+        setBudget(budget);
+        setDestination(destination);
+        setDeparture(departure);
+        setStartDays(startDays);
+        setEndDays(endDays);
+        setStartTime(startTime);
+        setEndTime(endTime);
+        setMonths(months);
+        setWeeks(weeks);
+        setAdults(adults);
+        setChildren(children);
+        setInfants(infants);
+        setCategory(category);
+    }
 
     public String getStartTime() {
         return startTime;
@@ -35,12 +53,12 @@ public class ReturnFlexibleFlight extends Flight {
         this.startDays = startDays;
     }
 
-    public List<Integer> getReturnDays() {
-        return returnDays;
+    public List<Integer> getEndDays() {
+        return endDays;
     }
 
-    public void setReturnDays(List<Integer> returnDays) {
-        this.returnDays = returnDays;
+    public void setEndDays(List<Integer> endDays) {
+        this.endDays = endDays;
     }
 
     public List<Integer> getMonths() {
