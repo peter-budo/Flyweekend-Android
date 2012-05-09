@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Flyweekend-Android</string>
-    <string name="flight_type">Flight type:</string>
+    <string name="flight_label">Flight type:</string>
     <string name="one_way_label">One way</string>
     <string name="return_label">Return</string>
-    <string name="dates_type">Do you know when to leave?</string>
+    <string name="dates_label">Do you know when to leave?</string>
     <string name="flexible_dates_label">Flexible dates</string>
     <string name="fixed_dates_label">Fixed dates</string>
     <string name="submit">Submit</string>
