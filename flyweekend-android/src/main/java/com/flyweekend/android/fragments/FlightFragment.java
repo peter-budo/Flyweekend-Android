@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.widget.*;
 import com.flyweekend.android.R;
 
@@ -19,8 +20,14 @@ public class FlightFragment extends Fragment {
     private EditText departureLocation;
     private RadioGroup flightRadioGrp;
     private RadioGroup dateTypeRadioGrp;
-    private RelativeLayout fixedSelection;
-    private RelativeLayout flexibleSelection;
+    private RelativeLayout returnFixedDays;
+    private RelativeLayout returnFlexibleDays;
+    private final Integer[] adult_values = {1, 2, 3, 4, 5, 6};
+    private final Integer[] children_values = {0, 1, 2, 3};
+    private Spinner adultsSpinner;
+    private Spinner childrenSpinner;
+    private Spinner infantsSpinner;
+    private Spinner classSpinner;
     private final String TAG = "FlightFragment";
 
     @Override
@@ -30,11 +37,15 @@ public class FlightFragment extends Fragment {
         budget = budget(view);
         arrivalLocation = arrivalLocation(view);
         departureLocation = departureLocation(view);
-        //view.findViewById(R.id.flight_label);
         flightRadioGrp = flightRadioGroup(view);
         dateTypeRadioGrp = dateTypeRadioGroup(view);
-        fixedSelection = getLayout(view, R.id.fixed_dates_layout, fixedDatesSelected());
-        flexibleSelection = getLayout(view, R.id.flexible_dates_layout, !fixedDatesSelected());
+        returnFixedDays = (RelativeLayout) view.findViewById(R.id.return_fixed_days_stub);
+        returnFlexibleDays = (RelativeLayout) view.findViewById(R.id.return_flexible_days_stub);
+        updateDatesVisibility();
+        adultsSpinner = spinner(view, R.id.adults_spinner, adult_values);
+        childrenSpinner = spinner(view, R.id.children_spinner, children_values);
+        infantsSpinner = spinner(view, R.id.infants_spinner, children_values);
+        classSpinner = spinner(view, R.id.class_spinner, getResources().getStringArray(R.array.travel_class_entries));
         Button submit = (Button)view.findViewById(R.id.submit);
         submit.setOnClickListener(new SubmitListener());
         return view;
@@ -56,7 +67,7 @@ public class FlightFragment extends Fragment {
         RadioGroup group = (RadioGroup)view.findViewById(R.id.flight_radio_group);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup radioGroup, int selected) {
-                if(selected == R.id.return_flight){
+                if(selected == R.id.return_flight_radio){
                     Log.i(TAG, "Return flight selected");
                 }else{
                     Log.i(TAG, "One way flight selected");
@@ -70,40 +81,33 @@ public class FlightFragment extends Fragment {
         RadioGroup group = (RadioGroup)view.findViewById(R.id.dates_radio_group);
         group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup radioGroup, int selected) {
-                if(selected == R.id.flexible_dates){
+                if(selected == R.id.flexible_dates_radio){
                     Log.i(TAG, "Flexible dates selected");
-                    updateDatesLayout(selected);
+                    updateDatesVisibility();
                 }else{
                     Log.i(TAG, "Fixed dates selected");
-                    updateDatesLayout(selected);
+                    updateDatesVisibility();
                 }
             }
         });
         return group;
     }
 
-    private RelativeLayout getLayout(View view, int id, boolean visible){
-        RelativeLayout layout = (RelativeLayout)view.findViewById(id);
-        if(visible){
-            layout.setVisibility(View.VISIBLE);
-        }else {
-            layout.setVisibility(View.INVISIBLE);
-        }
-        return layout;
-    }
-
-    private void updateDatesLayout(int selected){
-        if(selected == R.id.flexible_dates){
-            fixedSelection.setVisibility(View.INVISIBLE);
-            flexibleSelection.setVisibility(View.VISIBLE);
-        }else{
-            fixedSelection.setVisibility(View.VISIBLE);
-            flexibleSelection.setVisibility(View.INVISIBLE);
+    private void updateDatesVisibility(){
+        if(flightRadioGrp.getCheckedRadioButtonId() == R.id.return_flight_radio && dateTypeRadioGrp.getCheckedRadioButtonId() == R.id.fixed_dates_radio){
+            returnFixedDays.setVisibility(View.VISIBLE);
+            returnFlexibleDays.setVisibility(View.GONE);
+        } else{
+            returnFixedDays.setVisibility(View.GONE);
+            returnFlexibleDays.setVisibility(View.VISIBLE);
         }
     }
 
-    private boolean fixedDatesSelected(){
-        return dateTypeRadioGrp.getCheckedRadioButtonId() == R.id.fixed_dates;
+    private Spinner spinner(View view, int id, Object[] values){
+        Spinner spinner = (Spinner) view.findViewById(id);
+        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, values);
+        spinner.setAdapter(adapter);
+        return spinner;
     }
 
     private class SubmitListener implements View.OnClickListener {

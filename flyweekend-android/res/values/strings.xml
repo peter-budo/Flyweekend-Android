@@ -9,4 +9,10 @@
     <string name="fixed_dates_label">Fixed dates</string>
     <string name="submit">Submit</string>
     <string name="search">Search</string>
+    <string name="arrival_date_label">Depart</string>
+    <string name="return_date_label">Return</string>
+    <string name="adult_label">Adults</string>
+    <string name="children_label">Children</string>
+    <string name="infants_label">Infants</string>
+    <string name="class_label">Class</string>
 </resources>

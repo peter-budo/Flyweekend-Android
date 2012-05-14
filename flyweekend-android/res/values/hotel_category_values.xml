@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="hotel_category_values">
+        <item>all</item>
+        <item>one_star</item>
+        <item>two_stars</item>
+        <item>three_stars</item>
+        <item>four_stars</item>
+        <item>five_stars</item>
+        <item>not_classified</item>
+    </string-array>
+</resources>
