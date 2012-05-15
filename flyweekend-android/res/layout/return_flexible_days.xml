@@ -7,31 +7,44 @@
             android:id="@+id/arrival_days_label"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:text="@string/arrival_date_label"/>
-    <Spinner
-            android:id="@+id/arrival_day_spinner"
-            android:layout_width="wrap_content"
+            android:text="@string/arrival_date_label"
+            style="@style/Label"/>
+    <LinearLayout
+            android:id="@+id/arrival_spinners"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/arrival_days_label"/>
-    <Spinner
-            android:id="@+id/arrival_time_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/arrival_day_spinner"/>
+            android:layout_below="@id/arrival_days_label">
+        <Spinner
+                android:id="@+id/arrival_day_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arrival_days_label"/>
+        <Spinner
+                android:id="@+id/arrival_time_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arrival_day_spinner"/>
+    </LinearLayout>
     <TextView
             android:id="@+id/return_days_label"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:text="@string/return_date_label"
-            android:layout_below="@id/arrival_time_spinner"/>
-    <Spinner
-            android:id="@+id/return_day_spinner"
-            android:layout_width="wrap_content"
+            android:layout_below="@id/arrival_spinners"
+            style="@style/Label"/>
+    <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/return_days_label"/>
-    <Spinner
-            android:id="@+id/return_time_spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/return_day_spinner"/>
+            android:layout_below="@id/return_days_label">
+        <Spinner
+                android:id="@+id/return_day_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/return_days_label"/>
+        <Spinner
+                android:id="@+id/return_time_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/return_day_spinner"/>
+    </LinearLayout>
 </RelativeLayout>

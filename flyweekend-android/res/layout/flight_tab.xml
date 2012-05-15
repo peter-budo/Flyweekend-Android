@@ -9,29 +9,38 @@
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
-        <EditText
-                android:id="@+id/budget"
+        <RelativeLayout
+                android:id="@+id/text_fields"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="300 (Price is in Euros)"/>
-        <EditText
-                android:id="@+id/arrivalLocation"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="London (Arriving to)"
-                android:layout_below="@id/budget"/>
-        <EditText
-                android:id="@+id/departureLocation"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="Milan (Departing from)"
-                android:layout_below="@id/arrivalLocation"/>
+                android:layout_marginTop="5dp"
+                android:background="@drawable/basic_container">
+            <EditText
+                    android:id="@+id/budget"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:hint="300 (Price is in Euros)"/>
+            <EditText
+                    android:id="@+id/arrivalLocation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="London (Arriving to)"
+                    android:layout_below="@id/budget"/>
+            <EditText
+                    android:id="@+id/departureLocation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Milan (Departing from)"
+                    android:layout_below="@id/arrivalLocation"/>
+        </RelativeLayout>
         <RelativeLayout
                 android:id="@+id/flight_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/departureLocation">
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/text_fields"
+                android:background="@drawable/basic_container">
             <TextView
                     android:id="@+id/flight_label"
                     android:layout_height="wrap_content"
@@ -63,7 +72,9 @@
                 android:id="@+id/dates_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/flight_layout">
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/flight_layout"
+                android:background="@drawable/basic_container">
             <TextView
                     android:id="@+id/date_label"
                     android:layout_height="wrap_content"
@@ -95,13 +106,14 @@
                 android:id="@+id/stub_container"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:layout_below="@id/dates_layout">
             <com.flyweekend.android.date.view.ReturnFlexibleDays
                     android:id="@+id/return_flexible_days_stub"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout="@layout/return_flexible_days"
-                    />
+                    android:background="@drawable/basic_container"/>
             <!--<RelativeLayout
                     android:id="@+id/fixed_dates_layout"
                     android:layout_width="fill_parent"
@@ -117,72 +129,93 @@
                     android:id="@+id/return_fixed_days_stub"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout="@layout/return_fixed_days"/>
+                    android:layout="@layout/return_fixed_days"
+                    android:background="@drawable/basic_container"/>
         </RelativeLayout>
-        <RelativeLayout
-                android:id="@+id/adults_container"
-                android:layout_height="wrap_content"
+        <TableLayout
+                android:id="@+id/passengers_container"
                 android:layout_width="fill_parent"
-                android:layout_below="@id/stub_container">
-            <TextView
-                    android:id="@+id/adults_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adult_label"/>
-            <Spinner
-                    android:id="@+id/adults_spinner"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/adults_label"/>
-        </RelativeLayout>
-        <RelativeLayout
-                android:id="@+id/children_container"
                 android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:layout_below="@id/adults_container">
-            <TextView
-                    android:id="@+id/children_label"
-                    android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/stub_container"
+                android:background="@drawable/basic_container">
+            <TableRow
+                    android:id="@+id/adults_container"
                     android:layout_height="wrap_content"
-                    android:text="@string/children_label"/>
-            <Spinner
-                    android:id="@+id/children_spinner"
+                    android:layout_width="fill_parent"
+                    android:gravity="center|left">
+                <TextView
+                        android:id="@+id/adults_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adult_label"
+                        style="@style/Label"/>
+                <Spinner
+                        android:id="@+id/adults_spinner"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@id/adults_label"/>
+            </TableRow>
+            <TableRow
+                    android:id="@+id/children_container"
                     android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/children_label"/>
-        </RelativeLayout>
-        <RelativeLayout
-                android:id="@+id/infants_container"
-                android:layout_height="wrap_content"
-                android:layout_width="fill_parent"
-                android:layout_below="@id/children_container">
-            <TextView
-                    android:id="@+id/infants_label"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_below="@id/adults_container"
+                    android:gravity="center|left">
+                <TextView
+                        android:id="@+id/children_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="20dp"
+                        android:text="@string/children_label"
+                        style="@style/Label"/>
+                <Spinner
+                        android:id="@+id/children_spinner"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@id/children_label"/>
+            </TableRow>
+            <TableRow
+                    android:id="@+id/infants_container"
                     android:layout_height="wrap_content"
-                    android:text="@string/infants_label"/>
-            <Spinner
-                    android:id="@+id/infants_spinner"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:layout_toRightOf="@id/infants_label"/>
-        </RelativeLayout>
-        <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_below="@id/children_container"
+                    android:gravity="center|left">
+                <TextView
+                        android:id="@+id/infants_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/infants_label"
+                        style="@style/Label"/>
+                <Spinner
+                        android:id="@+id/infants_spinner"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_toRightOf="@id/infants_label"/>
+            </TableRow>
+        </TableLayout>
+        <LinearLayout
                 android:id="@+id/class_container"
                 android:layout_height="wrap_content"
                 android:layout_width="fill_parent"
-                android:layout_below="@id/infants_container">
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/passengers_container"
+                android:gravity="center|left"
+                android:background="@drawable/basic_container">
             <TextView
                     android:id="@+id/class_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/class_label"/>
+                    android:paddingRight="50dp"
+                    android:text="@string/class_label"
+                    style="@style/Label"/>
             <Spinner
                     android:id="@+id/class_spinner"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_toRightOf="@id/class_label"/>
-        </RelativeLayout>
+        </LinearLayout>
         <Button
                 android:id="@+id/submit"
                 android:layout_width="wrap_content"
@@ -190,6 +223,8 @@
                 android:text="@string/submit"
                 android:layout_below="@id/class_container"
                 android:layout_centerHorizontal="true"
-                />
+                android:background="@drawable/green_button"
+                style="@style/ButtonStyle"
+                android:layout_marginBottom="5dp"/>
     </RelativeLayout>
 </ScrollView>
