@@ -7,5 +7,5 @@ Flyweekend-Android is just show case of what could look like mobile application 
 
 Screenshots
 -----------
-![Flyweekend-Android flight trip selection screen part 1](https://github.com/peter-budo/Flyweekend-Android/blob/master/screenshots/flight_tab_1.png)
-![Flyweekend-Android flight trip selection screen part 2](https://github.com/peter-budo/Flyweekend-Android/blob/master/screenshots/flight_tab_2.png)
+![Flyweekend-Android flight trip selection screen part 1](https://github.com/peter-budo/Flyweekend-Android/raw/master/screenshots/flight_tab_1.png)
+![Flyweekend-Android flight trip selection screen part 2](https://github.com/peter-budo/Flyweekend-Android/raw/master/screenshots/flight_tab_2.png)
