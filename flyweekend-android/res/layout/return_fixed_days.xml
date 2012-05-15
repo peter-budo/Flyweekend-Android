@@ -7,5 +7,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/arrival_date_label"/>
-
+    <EditText
+            android:id="@+id/arrival_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arrival_date_label"
+            android:hint="10/05/2012"/>
+    <Spinner
+            android:id="@+id/arrival_time_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arrival_date"/>
+    <TextView
+            android:id="@+id/return_date_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/return_date_label"
+            android:layout_below="@id/arrival_time_spinner"/>
+    <EditText
+            android:id="@+id/return_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/return_date_label"
+            android:hint="10/05/2012"/>
+    <Spinner
+            android:id="@+id/return_time_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/return_date"/>
 </RelativeLayout>
