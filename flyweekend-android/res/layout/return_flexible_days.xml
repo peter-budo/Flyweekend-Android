@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
     <TextView
-        android:id="@+id/arrival_days_label"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:text="Return Flexible days"/>
+            android:id="@+id/arrival_days_label"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="@string/arrival_date_label"/>
+    <Spinner
+            android:id="@+id/arrival_day_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arrival_days_label"/>
+    <Spinner
+            android:id="@+id/arrival_time_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/arrival_day_spinner"/>
+    <TextView
+            android:id="@+id/return_days_label"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="@string/return_date_label"
+            android:layout_below="@id/arrival_time_spinner"/>
+    <Spinner
+            android:id="@+id/return_day_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/return_days_label"/>
+    <Spinner
+            android:id="@+id/return_time_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/return_day_spinner"/>
 </RelativeLayout>

@@ -2,7 +2,6 @@ package com.flyweekend.android.date.view;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import com.flyweekend.android.FlyweekendActivity;
@@ -10,16 +9,16 @@ import com.flyweekend.android.R;
 
 import static android.test.ViewAsserts.assertOnScreen;
 
-public class ReturnFixedDaysIT extends ActivityInstrumentationTestCase2<FlyweekendActivity> {
+public class ReturnFlexibleDaysIT extends ActivityInstrumentationTestCase2<FlyweekendActivity> {
     private FlyweekendActivity activity;
     private TextView arrivalDateLabel;
-    private EditText arrivalDate;
+    private Spinner arrivalDay;
     private Spinner arrivalTimesSpinner;
     private TextView returnDateLabel;
-    private EditText returnDate;
+    private Spinner returnDay;
     private Spinner returnTimesSpinner;
 
-    public ReturnFixedDaysIT() {
+    public ReturnFlexibleDaysIT() {
         super("com.flyweekend.android", FlyweekendActivity.class);
     }
 
@@ -28,10 +27,10 @@ public class ReturnFixedDaysIT extends ActivityInstrumentationTestCase2<Flyweeke
         super.setUp();
         activity = this.getActivity();
         arrivalDateLabel = (TextView) activity.findViewById(R.id.arrival_date_label);
-        arrivalDate = (EditText) activity.findViewById(R.id.arrival_date);
+        arrivalDay = (Spinner) activity.findViewById(R.id.arrival_day_spinner);
         arrivalTimesSpinner = (Spinner) activity.findViewById(R.id.arrival_time_spinner);
         returnDateLabel = (TextView) activity.findViewById(R.id.return_date_label);
-        returnDate = (EditText) activity.findViewById(R.id.return_date);
+        returnDay = (Spinner) activity.findViewById(R.id.return_day_spinner);
         returnTimesSpinner = (Spinner) activity.findViewById(R.id.return_time_spinner);
     }
 
@@ -39,10 +38,10 @@ public class ReturnFixedDaysIT extends ActivityInstrumentationTestCase2<Flyweeke
         assertNotNull(activity);
         final View view = getView();
         assertOnScreen(view, arrivalDateLabel);
-        assertOnScreen(view, arrivalDate);
+        assertOnScreen(view, arrivalDay);
         assertOnScreen(view, arrivalTimesSpinner);
         assertOnScreen(view, returnDateLabel);
-        assertOnScreen(view, returnDate);
+        assertOnScreen(view, returnDay);
         assertOnScreen(view, returnTimesSpinner);
     }
 
