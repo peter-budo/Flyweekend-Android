@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 import com.flyweekend.android.fragments.FlightFragment;
 import com.flyweekend.android.fragments.HotelFragment;
-import de.akquinet.android.androlog.Log;
 import net.peterkuterna.android.apps.swipeytabs.SwipeyTabs;
 import net.peterkuterna.android.apps.swipeytabs.SwipeyTabsAdapter;
 
@@ -29,7 +28,6 @@ public class FlyweekendActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.init();
         setContentView(R.layout.activity_swipeytab);
 
         pager = (ViewPager) findViewById(R.id.viewpager);

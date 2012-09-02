@@ -1,6 +1,7 @@
 package com.flyweekend.android.date.view;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.UiThreadTest;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,12 +35,16 @@ public class ReturnFlexibleDaysIT extends ActivityInstrumentationTestCase2<Flywe
         returnTimesSpinner = (Spinner) activity.findViewById(R.id.return_time_spinner);
     }
 
+    @UiThreadTest
     public void testInitialLayoutView(){
         assertNotNull(activity);
         final View view = getView();
         assertOnScreen(view, arrivalDateLabel);
         assertOnScreen(view, arrivalDay);
         assertOnScreen(view, arrivalTimesSpinner);
+        int height = view.getHeight();
+        int width = view.getWidth();
+        view.scrollTo(height, width);
         assertOnScreen(view, returnDateLabel);
         assertOnScreen(view, returnDay);
         assertOnScreen(view, returnTimesSpinner);
